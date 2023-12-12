@@ -1,26 +1,27 @@
 import okhttp3.HttpUrl
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
 
 @Suppress("MemberVisibilityCanBePrivate")
 class BarkClient(
     private val token: String
 ) {
     var host: String = DEFAULT_HOST
-    var title: String? = null
-    var body: String? = null
-    var level: PushLevel? = null
-    var badge: Int? = null
-    var autoCopy: Boolean? = null
-    var copy: String? = null
-    var sound: String? = null
-    var icon: String? = null
-    var group: String? = null
-    var isArchive: String? = null
-    var url: String? = null
 
-    fun send(): String {
+    @Suppress("unused")
+    fun send(
+         title: String? = null,
+         body: String? = null,
+         level: PushLevel? = null,
+         badge: Int? = null,
+         autoCopy: Boolean? = null,
+         copy: String? = null,
+         sound: String? = null,
+         icon: String? = null,
+         group: String? = null,
+         isArchive: String? = null,
+         url: String? = null,
+    ): String {
         val requestBody = mapOf(
             "device_key" to token,
             "title" to title,
@@ -55,11 +56,4 @@ class BarkClient(
 
         return response.body?.string() ?: ""
     }
-}
-
-enum class PushLevel(val paramStr: String) {
-    ACTIVE("active"),
-    TIME_SENSITIVE("timeSensitive"),
-    PASSIVE("passive"),
-    ;
 }
