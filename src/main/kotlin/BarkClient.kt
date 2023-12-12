@@ -2,13 +2,12 @@ import okhttp3.HttpUrl
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 
-@Suppress("MemberVisibilityCanBePrivate")
+@Suppress("unused")
 class BarkClient(
-    private val token: String
+    private val token: String,
+    private var host: String = DEFAULT_HOST
 ) {
-    var host: String = DEFAULT_HOST
 
-    @Suppress("unused")
     fun send(
          title: String? = null,
          body: String? = null,
