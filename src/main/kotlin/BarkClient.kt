@@ -5,7 +5,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 @Suppress("unused")
 class BarkClient(
     private val token: String,
-    private var host: String = DEFAULT_HOST
+    private var host: String = DEFAULT_HOST,
 ) {
     fun push(
         title: String? = null,
