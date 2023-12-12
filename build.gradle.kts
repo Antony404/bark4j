@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
-    implementation("com.squareup.okhttp3:okhttp:4.9.2")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.10")
 }
 
