@@ -16,8 +16,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/ant00000ny/bark4j")
             credentials {
-                username = project.findProperty("USERNAME")
-                password = project.findProperty("TOKEN")
+                username = project.findProperty("USERNAME") ?: "USERNAME"
+                password = project.findProperty("TOKEN") ?: "TOKEN"
             }
         }
     }
