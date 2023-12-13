@@ -7,20 +7,19 @@ class BarkClient(
     private val token: String,
     private var host: String = DEFAULT_HOST
 ) {
-
-    fun send(
-         title: String? = null,
-         body: String? = null,
-         level: PushLevel? = null,
-         badge: Int? = null,
-         autoCopy: Boolean? = null,
-         copy: String? = null,
-         sound: String? = null,
-         icon: String? = null,
-         group: String? = null,
-         isArchive: String? = null,
-         url: String? = null,
-    ): String {
+    fun push(
+        title: String? = null,
+        body: String? = null,
+        level: PushLevel? = null,
+        badge: Int? = null,
+        autoCopy: Boolean? = null,
+        copy: String? = null,
+        sound: String? = null,
+        icon: String? = null,
+        group: String? = null,
+        isArchive: String? = null,
+        url: String? = null,
+    ): String? {
         val requestBody = mapOf(
             "device_key" to token,
             "title" to title,
@@ -53,6 +52,6 @@ class BarkClient(
             .build()
             .let { okHttpClient.newCall(it).execute() }
 
-        return response.body?.string() ?: ""
+        return response.body?.string()
     }
 }
